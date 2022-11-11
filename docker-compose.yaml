@@ -1,0 +1,15 @@
+# compose file for hue-browser-controller
+version: '3'
+
+networks:
+  hue-browser-controllernetwork_compose:
+    driver: bridge
+
+services:
+  hue-browser-controller:
+    build: .
+    restart: unless-stopped
+    networks:
+      hue-browser-controllernetwork_compose:
+    ports:
+    - "8881:80"
